@@ -1,4 +1,3 @@
-import React from "react";
 import { StoreItem } from "../models/StoreItem";
 import { useContext } from "react";
 import { CartContext } from "../store/shopping-cart-context";
@@ -11,8 +10,10 @@ function ModalItem({ item }: ModalItemProps) {
 	const cartCtx = useContext(CartContext);
 	return (
 		<div className="bg-gray-400 flex justify-between m-[5px] items-center h-[50px] rounded-md p-2">
-			<h1 className="overflow-auto whitespace-nowrap w-[70%]">{item.title}</h1>
-			<h1 className="">${item.price}</h1>
+			<h1 className="overflow-hidden truncate whitespace-nowrap w-[70%]">
+				{item.title}
+			</h1>
+			<h1 className="">{item.price}</h1>
 			<div className="flex items-center">
 				<i
 					className="fa-solid fa-minus text-[12px] cursor-pointer"

@@ -15,13 +15,16 @@ const ItemCard = ({ storeItem }: ItemCardProps) => {
 				<img src={storeItem.image} className="h-[100%]" />
 			</div>
 			<div className="h-[50%] relative">
-				<h1 className="flex text-[#e89644] font-custom font-bold text-[25px] whitespace-nowrap overflow-auto">
+				<h1
+					className="flex text-[#e89644] font-custom font-bold text-[25px] whitespace-nowrap overflow-hidden text-ellipsis "
+					style={{ display: "block" }}
+				>
 					{storeItem.title}
 				</h1>
 				<h1 className="flex text-[#b88756] font-custom text-[15px]">
 					${storeItem.price}
 				</h1>
-				<p className="flex h-[125px] overflow-auto text-black font-custom">
+				<p className="line-clamp-5 text-black font-custom">
 					{storeItem.description}
 				</p>
 				<div className="absolute bottom-0 flex w-[100%] justify-end">
@@ -29,9 +32,8 @@ const ItemCard = ({ storeItem }: ItemCardProps) => {
 						className="flex h-[40px] w-[125px] bg-[#fab876] items-center justify-between rounded p-5 cursor-pointer"
 						title="Add to Cart"
 						onClick={() => {
-                            alert("Item added to cart successfully");
+							alert("Item added to cart successfully");
 							cartCtx.addItem(storeItem);
-							
 						}}
 					/>
 				</div>
